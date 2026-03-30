@@ -1,0 +1,346 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ─────────────────────────────────────────────── */
+:root {
+  /* Page */
+  --page-bg:   #FAFAF8;
+  --surface:   #FFFFFF;
+
+  /* Sage green scale */
+  --sage-50:   #F0FAF5;
+  --sage-100:  #E1F5EE;
+  --sage-200:  #B8E9D8;
+  --sage-400:  #6BBF9E;
+  --sage-500:  #4A9B7F;
+  --sage-600:  #3A8068;
+  --sage-700:  #2D6E56;
+  --sage-900:  #085041;
+
+  /* Gold scale */
+  --gold-50:   #FDF7EE;
+  --gold-100:  #FAEEDA;
+  --gold-200:  #F5D9B0;
+  --gold-400:  #DFB87A;
+  --gold-500:  #D4A96A;
+  --gold-600:  #B88A42;
+  --gold-900:  #633806;
+
+  /* Neutral / ink */
+  --ink-400:   #6B6762;
+  --ink-600:   #3D3B38;
+  --ink-900:   #1A1916;
+  --sand-100:  #F5F3EF;
+  --sand-200:  #EAE7E1;
+
+  /* Typography */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body:    var(--font-nunito), system-ui, sans-serif;
+
+  /* Motion */
+  --ease-natural:    cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-out-smooth: cubic-bezier(0.0,  0.0, 0.2,  1.0);
+  --duration-fast:   250ms;
+  --duration-base:   350ms;
+  --duration-slow:   600ms;
+
+  /* Spacing landmarks */
+  --section-py:  6rem;   /* 96px desktop */
+  --container-x: 2rem;   /* 32px desktop gutter */
+}
+
+/* ─── Base Reset & Defaults ──────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #FAFAF8;
+    color: #3D3B38;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.625;
+    min-height: 100dvh;
+  }
+
+  /* Headings use display font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: #1A1916;
+    text-wrap: balance;
+    line-height: 1.2;
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 400; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.875rem, 3.5vw, 3rem); font-weight: 400; letter-spacing: -0.01em; }
+  h3 { font-size: clamp(1.5rem, 2.5vw, 1.875rem); font-weight: 400; }
+  h4 { font-size: 1.25rem; font-weight: 600; font-family: var(--font-body); }
+  h5 { font-size: 1.125rem; font-weight: 600; font-family: var(--font-body); }
+  h6 { font-size: 1rem;     font-weight: 600; font-family: var(--font-body); }
+
+  p {
+    color: #504D49;
+    max-width: 68ch;
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Visible focus rings — WCAG 2.1 AA */
+  :focus-visible {
+    outline: 2px solid #6BBF9E;
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* Remove focus ring for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Reduced motion — all animations off */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ─── Component Utilities ────────────────────────────────────────────────── */
+@layer components {
+  /* Container — max 1200px, centred, consistent gutters */
+  .container-site {
+    width: 100%;
+    max-width: 75rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .container-site { padding-inline: 2rem; }
+  }
+  @media (min-width: 1280px) {
+    .container-site { padding-inline: 2.5rem; }
+  }
+
+  /* Section wrapper — standard vertical breathing room */
+  .section {
+    padding-block: 5rem;
+  }
+  @media (min-width: 768px) {
+    .section { padding-block: var(--section-py); }
+  }
+
+  /* Eyebrow label — small all-caps category label above headings */
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4A9B7F;
+  }
+
+  /* Gold rule — thin decorative horizontal line */
+  .gold-rule {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background-color: #D4A96A;
+  }
+
+  /* Sage pill — the "Who we help" pill chips */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid #B8E9D8;
+    background-color: #F0FAF5;
+    color: #2D6E56;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color var(--duration-fast) var(--ease-natural),
+                border-color var(--duration-fast) var(--ease-natural);
+  }
+  .pill:hover {
+    background-color: #E1F5EE;
+    border-color: #6BBF9E;
+  }
+  .pill:focus-visible {
+    outline: 2px solid #6BBF9E;
+    outline-offset: 2px;
+  }
+
+  /* Button — primary (sage green) */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    background-color: #4A9B7F;
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: background-color var(--duration-fast) var(--ease-natural),
+                box-shadow var(--duration-fast) var(--ease-natural),
+                transform var(--duration-fast) var(--ease-natural);
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary:hover {
+    background-color: #3A8068;
+    box-shadow: 0 4px 16px -2px rgb(74 155 127 / 0.30);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active { transform: translateY(0); }
+
+  /* Button — secondary (outlined gold) */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    background-color: transparent;
+    color: #A06C2E;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border: 1.5px solid #D4A96A;
+    transition: background-color var(--duration-fast) var(--ease-natural),
+                border-color var(--duration-fast) var(--ease-natural),
+                transform var(--duration-fast) var(--ease-natural);
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    background-color: #FDF7EE;
+    border-color: #B88A42;
+    transform: translateY(-1px);
+  }
+  .btn-secondary:active { transform: translateY(0); }
+
+  /* Button — ghost (sage outlined) */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    background-color: transparent;
+    color: #3A8068;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border: 1.5px solid #B8E9D8;
+    transition: background-color var(--duration-fast) var(--ease-natural),
+                border-color var(--duration-fast) var(--ease-natural),
+                transform var(--duration-fast) var(--ease-natural);
+    cursor: pointer;
+  }
+  .btn-ghost:hover {
+    background-color: #F0FAF5;
+    border-color: #6BBF9E;
+    transform: translateY(-1px);
+  }
+  .btn-ghost:active { transform: translateY(0); }
+
+  /* Button — ghost gold (staff / secondary gold variant) */
+  .btn-ghost-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    background-color: transparent;
+    color: #A06C2E;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border: 1.5px solid #DFB87A;
+    transition: background-color var(--duration-fast) var(--ease-natural),
+                border-color var(--duration-fast) var(--ease-natural),
+                transform var(--duration-fast) var(--ease-natural);
+    cursor: pointer;
+  }
+  .btn-ghost-gold:hover {
+    background-color: #FDF7EE;
+    border-color: #B88A42;
+    transform: translateY(-1px);
+  }
+  .btn-ghost-gold:active { transform: translateY(0); }
+  .btn-ghost-gold:focus-visible {
+    outline: 2px solid #6BBF9E;
+    outline-offset: 2px;
+  }
+}
+
+/* ─── Scroll-reveal Animation Utility ───────────────────────────────────── */
+@layer utilities {
+  /* Applied by the useReveal hook — elements start hidden */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--duration-slow) var(--ease-out-smooth),
+                transform var(--duration-slow) var(--ease-out-smooth);
+  }
+
+  /* Hook adds this class when element enters viewport */
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered siblings */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--duration-slow) var(--ease-out-smooth),
+                transform var(--duration-slow) var(--ease-out-smooth);
+  }
+  .reveal-stagger.is-visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+  .reveal-stagger.is-visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
+  .reveal-stagger.is-visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
+  .reveal-stagger.is-visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 300ms; }
+  .reveal-stagger.is-visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 400ms; }
+  .reveal-stagger.is-visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 500ms; }
+
+  /* Text balance helpers */
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+}

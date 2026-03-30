@@ -1,0 +1,153 @@
+
+<style>
+  .wrap { padding: 16px 0; }
+  .page-tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tab {
+    padding: 7px 16px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 500;
+    border: 1px solid var(--color-border-tertiary); color: var(--color-text-secondary);
+    background: transparent; transition: all .15s;
+  }
+  .tab.active { background: var(--color-background-info); color: var(--color-text-info); border-color: var(--color-border-info); }
+  .page-meta { margin-bottom: 16px; }
+  .page-title { font-size: 16px; font-weight: 500; color: var(--color-text-primary); }
+  .page-desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 3px; line-height: 1.5; }
+  .sections { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+  .row {
+    display: grid; grid-template-columns: 32px 20px 1fr auto;
+    gap: 12px; align-items: start; padding: 13px 14px;
+    background: var(--color-background-secondary);
+    border-bottom: 1px solid var(--color-border-tertiary);
+    transition: background .12s;
+  }
+  .row:last-child { border-bottom: none; }
+  .row:hover { background: var(--color-background-primary); }
+  .num {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 500; flex-shrink: 0;
+  }
+  .c-green  { background: #E1F5EE; color: #085041; }
+  .c-gold   { background: #FAEEDA; color: #633806; }
+  .c-gray   { background: #F1EFE8; color: #444441; }
+  .c-purple { background: #EEEDFE; color: #3C3489; }
+  @media (prefers-color-scheme: dark) {
+    .c-green  { background: #085041; color: #9FE1CB; }
+    .c-gold   { background: #633806; color: #FAC775; }
+    .c-gray   { background: #444441; color: #D3D1C7; }
+    .c-purple { background: #26215C; color: #CECBF6; }
+  }
+  .icon { font-size: 14px; margin-top: 5px; opacity: .7; }
+  .section-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+  .section-note { font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; }
+  .badge {
+    font-size: 10px; padding: 3px 9px; border-radius: 20px;
+    font-weight: 500; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+  }
+  .b-hero   { background: #EEEDFE; color: #3C3489; }
+  .b-trust  { background: #E1F5EE; color: #085041; }
+  .b-info   { background: #E6F1FB; color: #0C447C; }
+  .b-cta    { background: #FAEEDA; color: #633806; }
+  .b-std    { background: #F1EFE8; color: #444441; }
+  @media (prefers-color-scheme: dark) {
+    .b-hero   { background: #26215C; color: #CECBF6; }
+    .b-trust  { background: #085041; color: #9FE1CB; }
+    .b-info   { background: #042C53; color: #85B7EB; }
+    .b-cta    { background: #633806; color: #FAC775; }
+    .b-std    { background: #444441; color: #D3D1C7; }
+  }
+  .note-bar {
+    margin-top: 16px; padding: 11px 14px; border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border-tertiary);
+    font-size: 12px; color: var(--color-text-secondary); line-height: 1.6;
+    background: var(--color-background-secondary);
+  }
+  .note-bar strong { color: var(--color-text-primary); font-weight: 500; }
+</style>
+
+<div class="wrap">
+  <div class="page-tabs" id="tabs"></div>
+  <div class="page-meta">
+    <div class="page-title" id="ptitle"></div>
+    <div class="page-desc" id="pdesc"></div>
+  </div>
+  <div class="sections" id="slist"></div>
+  <div class="note-bar" id="pnote"></div>
+</div>
+
+<script>
+const pages = [
+  {
+    id: "landing",
+    title: "Landing page",
+    desc: "Primary goal: help visitors understand the services clearly, then guide them to get in touch.",
+    note: "<strong>Flow logic:</strong> Hero grabs attention → Stats build credibility instantly → Services teach them what's on offer → Who We Help lets them self-identify → Testimonials close the trust loop → Final CTA pushes them to contact.",
+    sections: [
+      { n:1, col:"c-green",  icon:"✦", name:"Navbar", badge:"b-std", bl:"Always present", note:"Logo left. Navigation links: Home, About, Contact. One gold CTA button — 'Get In Touch' — sits far right. Sticky on scroll, very minimal, transparent over hero then white on scroll." },
+      { n:2, col:"c-purple", icon:"◈", name:"Hero section", badge:"b-hero", bl:"Anchor", note:"Large confident headline — what the company does in one sentence. Short subtext. One primary CTA button ('Our Services') in sage green, one secondary ('Contact Us') outlined in gold. Soft background — frosted, airy, parallax image of a care environment. Animated text entrance on load." },
+      { n:3, col:"c-gold",   icon:"◉", name:"Stats bar", badge:"b-trust", bl:"Trust signal", note:"3 animated counters on scroll: 10+ Happy Homes, 24+ Inspired Team Members, 15+ Years Experience. Clean, typographic, minimal. Thin gold dividers between each stat. Full width, light sage background." },
+      { n:4, col:"c-green",  icon:"▦", name:"Services section", badge:"b-info", bl:"Core content", note:"The main teaching section. 4 service cards: Staffing, Training & Development, Supported Living, Domiciliary Care. Each has a sage green icon, bold service title, 2-line description, subtle hover lift. Stagger-in animation on scroll. This is the heart of the page." },
+      { n:5, col:"c-green",  icon:"◎", name:"Short about us", badge:"b-info", bl:"Context", note:"Two columns — left: text block with company intro, 15-year experience story, a small 'Learn More' button linking to About page. Right: large image with a gentle parallax float. Keeps it brief — just enough to build familiarity." },
+      { n:6, col:"c-gold",   icon:"◈", name:"Who we help", badge:"b-info", bl:"Self-identification", note:"Pill/chip grid showing supported groups: Autism & Asperger's, Learning Disabilities, Elderly, Alcohol Dependency. Let visitors quickly see themselves or their loved ones here. Soft scroll-in stagger. Sage green pill borders." },
+      { n:7, col:"c-green",  icon:"❝", name:"Testimonials", badge:"b-trust", bl:"Trust signal", note:"2–3 clean quote cards. Name, role, short quote. Subtle slide-in. White cards on a pale sage background section. Star rating optional. Keeps trust momentum going after the Who We Help section." },
+      { n:8, col:"c-gold",   icon:"→", name:"Contact CTA banner", badge:"b-cta", bl:"Conversion", note:"Full-width warm banner — champagne gold or deep sage green background. Bold headline: 'Let's talk about your care needs.' One large button to the Contact page. This is the final push before the footer." },
+      { n:9, col:"c-gray",   icon:"▬", name:"Footer", badge:"b-std", bl:"Standard", note:"Dark sage green background. Logo, tagline, nav links, contact info, download cards (Join Our Team + Staff Timesheet). Gold accents. Consistent across all pages." },
+    ]
+  },
+  {
+    id: "about",
+    title: "About page",
+    desc: "Goal: build deep trust. Families and care facilities need to know who they're working with before committing.",
+    note: "<strong>Design note:</strong> No team photos yet — use clean illustrated placeholders or abstract shapes. Typography and whitespace do the trust-building here. The page should feel calm, credible, and human.",
+    sections: [
+      { n:1, col:"c-gray",   icon:"▬", name:"Navbar", badge:"b-std", bl:"Always present", note:"Same sticky navbar as landing page." },
+      { n:2, col:"c-purple", icon:"◈", name:"Page hero", badge:"b-hero", bl:"Anchor", note:"Minimal centred hero. Large headline: 'Who We Are'. One warm sentence beneath. Soft parallax image background. Thin gold rule below the headline. Calm, unhurried entrance animation." },
+      { n:3, col:"c-green",  icon:"▦", name:"Company story", badge:"b-info", bl:"Core content", note:"Two-column layout. Left: editorial text — founding story, 15+ years experience, the team's background in care. Right: large warm image (placeholder for now) with subtle parallax drift. This is the emotional core of the page." },
+      { n:4, col:"c-gold",   icon:"◉", name:"Stats row", badge:"b-trust", bl:"Trust signal", note:"Same animated counters as landing page. Reinforces credibility. Can be a thinner version — just the numbers and labels, no background section needed." },
+      { n:5, col:"c-green",  icon:"▦", name:"Mission, Goals, Why Us", badge:"b-info", bl:"Core content", note:"3 cards side by side. Each has a thin gold top border, a bold label (Mission / Goals / Why Us), and 2–3 sentences. Scroll-triggered reveal one by one. Generous internal padding, lots of white space." },
+      { n:6, col:"c-gold",   icon:"◈", name:"Team section", badge:"b-info", bl:"Human element", note:"2–3 placeholder cards for now. Each has a circular placeholder avatar, name, title, one-line bio. Sage green ring on the avatar circle. When real photos are ready, drop them straight in. Keeps the page feeling personal even without real photos." },
+      { n:7, col:"c-gold",   icon:"→", name:"CTA banner", badge:"b-cta", bl:"Conversion", note:"Full-width deep sage green section. Headline: 'Ready to talk? We'd love to hear from you.' Gold button linking to Contact page. Quiet but clear." },
+      { n:8, col:"c-gray",   icon:"▬", name:"Footer", badge:"b-std", bl:"Standard", note:"Same footer as landing page." },
+    ]
+  },
+  {
+    id: "contact",
+    title: "Contact page",
+    desc: "Goal: make it as easy as possible to reach out — and handle both public enquiries and staff downloads cleanly.",
+    note: "<strong>Key UX note:</strong> The download section has two very different audiences — public (job applicants) and staff (timesheet). Separate them visually so a client or family member never feels lost landing on a staff-facing card.",
+    sections: [
+      { n:1, col:"c-gray",   icon:"▬", name:"Navbar", badge:"b-std", bl:"Always present", note:"Same sticky navbar." },
+      { n:2, col:"c-purple", icon:"◈", name:"Page hero", badge:"b-hero", bl:"Anchor", note:"Short, warm, minimal. Headline: 'Get In Touch'. One line of reassuring subtext — e.g. 'We're here to help. Reach out and we'll get back to you shortly.' Soft background, gentle entrance." },
+      { n:3, col:"c-green",  icon:"▦", name:"Form + contact info", badge:"b-info", bl:"Core content", note:"Two-column layout. Left: contact form — Name, Email, Subject dropdown (General Enquiry / Staffing / Join the Team / Other), Message, Send button in sage green. Right: contact info block — Official Address, Correspondence Address, email, phone. Each detail separated by thin lines, gold left-rule accent." },
+      { n:4, col:"c-green",  icon:"◎", name:"Office map", badge:"b-info", bl:"Location", note:"Contained Google Maps embed showing the Dartford/Admirals Park office. Rounded card, soft shadow. Not full-bleed — sits in a contained section with a label above it ('Find Us')." },
+      { n:5, col:"c-gold",   icon:"↓", name:"Downloads section", badge:"b-cta", bl:"Utility", note:"Two clearly separated cards. Card 1 — 'Join Our Team': public, prominent, green button, brief description. Card 2 — 'Staff Timesheet': clearly labelled as staff-only, password-protected, muted gold styling so it reads as a secondary/internal action. Both on a pale sage background section." },
+      { n:6, col:"c-gray",   icon:"▬", name:"Footer", badge:"b-std", bl:"Standard", note:"Same footer as all pages." },
+    ]
+  }
+];
+
+let active = "landing";
+
+function render() {
+  const p = pages.find(x => x.id === active);
+  document.getElementById("ptitle").textContent = p.title;
+  document.getElementById("pdesc").textContent = p.desc;
+  document.getElementById("pnote").innerHTML = p.note;
+  document.getElementById("tabs").innerHTML = pages.map(p =>
+    `<button class="tab ${p.id===active?'active':''}" onclick="go('${p.id}')">${p.title}</button>`
+  ).join("");
+  document.getElementById("slist").innerHTML = p.sections.map(s => `
+    <div class="row">
+      <div class="num ${s.col}">${s.n}</div>
+      <div class="icon">${s.icon}</div>
+      <div>
+        <div class="section-name">${s.name}</div>
+        <div class="section-note">${s.note}</div>
+      </div>
+      <span class="badge ${s.badge}">${s.bl}</span>
+    </div>
+  `).join("");
+}
+
+function go(id) { active = id; render(); }
+render();
+</script>

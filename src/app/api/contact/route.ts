@@ -40,7 +40,7 @@ export async function POST(request: Request) {
   try {
     await resend.emails.send({
       from:    'The Affectionate Care Support Ltd. <onboarding@resend.dev>',
-      to:      ['kumdanjob09@gmail.com'],
+      to:      ['yinodors@yahoo.com'],
       replyTo: email,
       subject: `New enquiry: ${subjectLabel} — ${name}`,
       html: `

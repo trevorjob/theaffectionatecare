@@ -38,6 +38,10 @@ export const metadata: Metadata = {
     "elderly care",
   ],
   authors: [{ name: "The Affectionate Care Support Ltd." }],
+  icons: {
+    icon: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",

@@ -65,7 +65,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "2",
     quote:
-      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Company for two years — the standard never drops.",
+      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Support Ltd. for two years — the standard never drops.",
     name: "James R.",
     role: "Care Facility Manager, Rochester",
   },
@@ -79,14 +79,10 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const CONTACT_INFO = {
-  officialAddress: {
-    label: "Registered Address",
-    lines: ["Admirals Park", "Victory Way", "Dartford", "DA2 6QD"],
+  address: {
+    label: "Address",
+    lines: ["19 Leybourne Road", "Rochester", "United Kingdom", "ME2 3QF"],
   },
-  correspondenceAddress: {
-    label: "Correspondence Address",
-    lines: ["1 Northgate", "Rochester", "Kent", "ME1 1LS"],
-  },
-  email: "info@theaffectionatecare.co.uk",
-  phone: "01322 000000",
+  email: "hello@tacs.health",
+  phone: "+44 (0)1322 643289",
 };

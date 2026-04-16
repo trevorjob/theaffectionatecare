@@ -154,7 +154,7 @@ function StorySection() {
 
             <Reveal delay={0.16} className="space-y-4">
               <p className="font-body text-sm text-ink-500 leading-relaxed">
-                The Affectionate Care Company grew from a simple frustration: too many
+                The Affectionate Care Support Ltd. grew from a simple frustration: too many
                 care services were clinical in the cold sense — efficient but impersonal.
                 We wanted to prove that high standards and genuine warmth aren&apos;t in
                 conflict. They reinforce each other.
@@ -451,7 +451,7 @@ function CredentialsSection() {
                 CQC Registered. Fully compliant.
               </h2>
               <p className="font-body text-sm text-ink-500 leading-relaxed max-w-prose">
-                The Affectionate Care Company is registered with the Care Quality Commission.
+                The Affectionate Care Support Ltd. is registered with the Care Quality Commission.
                 Our practices are regularly inspected and held to the highest national standards.
                 You can trust that the care you receive meets every regulatory requirement —
                 and then some.

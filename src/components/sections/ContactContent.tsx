@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
 import ContactForm from "@/components/sections/ContactForm";
+import TimesheetDownload from "@/components/sections/TimesheetDownload";
 
 const EASE = [0.25, 1, 0.5, 1] as const;
 
@@ -40,22 +41,17 @@ function ContactInfoColumn() {
       </h2>
 
       <div className="space-y-0 divide-y divide-sand-100">
-        {[CONTACT_INFO.officialAddress, CONTACT_INFO.correspondenceAddress].map((addr) => (
-          <div key={addr.label} className="py-6 first:pt-0 flex gap-4">
-            <span
-              className="w-px h-8 shrink-0 mt-1 bg-gold-400"
-              aria-hidden="true"
-            />
-            <div>
-              <p className="font-body text-2xs font-semibold tracking-wider uppercase text-gold-600 mb-1">
-                {addr.label}
-              </p>
-              <address className="not-italic font-body text-sm text-ink-500 leading-relaxed">
-                {addr.lines.join(", ")}
-              </address>
-            </div>
+        <div className="py-6 first:pt-0 flex gap-4">
+          <span className="w-px h-8 shrink-0 mt-1 bg-gold-400" aria-hidden="true" />
+          <div>
+            <p className="font-body text-2xs font-semibold tracking-wider uppercase text-gold-600 mb-1">
+              {CONTACT_INFO.address.label}
+            </p>
+            <address className="not-italic font-body text-sm text-ink-500 leading-relaxed">
+              {CONTACT_INFO.address.lines.join(", ")}
+            </address>
           </div>
-        ))}
+        </div>
 
         <div className="py-6 flex gap-4">
           <span className="w-px h-8 shrink-0 mt-1 bg-gold-400" aria-hidden="true" />
@@ -126,14 +122,15 @@ function DownloadsSection() {
                   Interested in a care career? Download our application pack.
                 </p>
               </div>
-              <button
-                type="button"
+              <a
+                href="/downloads/application-form.pdf"
+                download="TACS-Application-Form.pdf"
                 className="btn-primary text-sm shrink-0"
                 aria-label="Download Join Our Team application pack"
               >
                 Download
                 <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-              </button>
+              </a>
             </div>
           </Reveal>
 
@@ -148,13 +145,9 @@ function DownloadsSection() {
                   Staff only
                 </span>
               </div>
-              <button
-                type="button"
-                className="btn-ghost-gold text-sm py-2 px-4 shrink-0"
-                aria-label="Download weekly staff timesheet template"
-              >
+              <TimesheetDownload className="btn-ghost-gold text-sm py-2 px-4 shrink-0">
                 Download
-              </button>
+              </TimesheetDownload>
             </div>
           </Reveal>
         </div>
@@ -261,8 +254,8 @@ export default function ContactContent() {
           <Reveal delay={0.08}>
             <div className="rounded-2xl overflow-hidden shadow-card-md border border-sand-100 aspect-video max-h-96">
               <iframe
-                title="The Affectionate Care Company office location in Dartford, Kent"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9956.8!2d0.2167!3d51.4443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8b2a04a5a5a5a%3A0x5a5a5a5a5a5a5a5a!2sAdmirals%20Park%2C%20Dartford!5e0!3m2!1sen!2suk!4v1"
+                title="The Affectionate Care Support Ltd. office location in Dartford, Kent"
+                src="https://www.google.com/maps?q=19+Leybourne+Road,+Rochester,+ME2+3QF,+UK&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

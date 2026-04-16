@@ -6,7 +6,7 @@ import AboutContent from "@/components/sections/AboutContent";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about The Affectionate Care Company — 15+ years of compassionate care in Dartford and Rochester, Kent.",
+    "Learn about The Affectionate Care Support Ltd. — 15+ years of compassionate care in Dartford and Rochester, Kent.",
 };
 
 export default function AboutPage() {

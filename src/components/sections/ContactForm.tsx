@@ -101,9 +101,18 @@ export default function ContactForm({
     if (Object.keys(errs).length > 0) return;
 
     setStatus("submitting");
-    // TODO: replace with real API call / server action
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setStatus("success");
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? 'Unknown error')
+      setStatus("success")
+    } catch {
+      setStatus("error")
+    }
   }
 
   if (status === "success") {
@@ -317,6 +326,13 @@ export default function ContactForm({
           </p>
         )}
       </div>
+
+      {status === "error" && (
+        <p role="alert" className="flex items-center gap-2 font-body text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+          <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
+          Something went wrong. Please try again or email us directly.
+        </p>
+      )}
 
       <button
         type="submit"

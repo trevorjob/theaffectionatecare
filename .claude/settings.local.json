@@ -14,7 +14,8 @@
       "Bash(cp /tmp/affcare/postcss.config.mjs /c/Users/HP/Videos/programming/theaffectionatecare/)",
       "Bash(npx next:*)",
       "Bash(npm install:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(ls \"c:/Users/HP/Videos/theaffectionatecare/.env\"*)"
     ]
   }
 }

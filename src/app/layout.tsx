@@ -20,8 +20,8 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: {
-    default: "The Affectionate Care Company",
-    template: "%s | The Affectionate Care Company",
+    default: "The Affectionate Care Support Ltd.",
+    template: "%s | The Affectionate Care Support Ltd.",
   },
   description:
     "Professional care services in Dartford & Rochester, Kent. Staffing, training & development, supported living, and domiciliary care — supporting people with autism, learning disabilities, elderly care, and more.",
@@ -37,11 +37,11 @@ export const metadata: Metadata = {
     "learning disabilities",
     "elderly care",
   ],
-  authors: [{ name: "The Affectionate Care Company" }],
+  authors: [{ name: "The Affectionate Care Support Ltd." }],
   openGraph: {
     type: "website",
     locale: "en_GB",
-    siteName: "The Affectionate Care Company",
+    siteName: "The Affectionate Care Support Ltd.",
   },
 };
 

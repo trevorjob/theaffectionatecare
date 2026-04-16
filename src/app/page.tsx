@@ -9,7 +9,7 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import HomeCtaSection from "@/components/sections/HomeCtaSection";
 
 export const metadata: Metadata = {
-  title: "The Affectionate Care Company — Care Services in Kent",
+  title: "The Affectionate Care Support Ltd. — Care Services in Kent",
   description:
     "Professional staffing, supported living, domiciliary care, and training across Dartford & Rochester, Kent. Supporting people with autism, learning disabilities, elderly care, and more.",
 };

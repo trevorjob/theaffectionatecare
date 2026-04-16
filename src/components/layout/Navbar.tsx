@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
@@ -40,18 +41,28 @@ export default function Navbar() {
         className="container-site flex items-center justify-between h-16 md:h-18"
         aria-label="Main navigation"
       >
-        {/* Logotype */}
+        {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-1 shrink-0 group"
-          aria-label="The Affectionate Care Company — Home"
+          className="shrink-0 flex items-center gap-2 group"
+          aria-label="The Affectionate Care Support Ltd. — Home"
         >
-          <span className="font-display text-lg font-semibold tracking-tight text-ink-900 transition-colors duration-250 group-hover:text-ink-700">
-            The Affectionate Care
-          </span>
-          <span className="font-display text-lg font-normal text-sage-500 transition-colors duration-250 group-hover:text-sage-600">
-            Co.
-          </span>
+          <Image
+            src="/images/logo.jpg"
+            alt="The Affectionate Care Support Ltd."
+            height={40}
+            width={200}
+            className="h-10 w-auto"
+            priority
+          />
+         <div className="leading-[1] font-body text-lg text-ink-900">
+  <span className="font-bold">
+    The Affectionate Care<br />
+    <span className="font-bold text-sage-500">
+      Support Ltd.
+    </span>
+  </span>
+</div>
         </Link>
 
         {/* Desktop nav links */}

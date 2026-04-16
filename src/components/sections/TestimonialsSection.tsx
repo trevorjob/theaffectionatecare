@@ -17,7 +17,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Company for two years — the standard never drops.",
+      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Support Ltd. for two years — the standard never drops.",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     name: "James R.",
     role: "Care facility manager, Rochester",

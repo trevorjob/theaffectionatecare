@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | The Affectionate Care Support Ltd.",
   },
   description:
-    "Professional care services in Dartford & Rochester, Kent. Staffing, training & development, supported living, and domiciliary care — supporting people with autism, learning disabilities, elderly care, and more.",
+    "Professional care services in Dartford & Rochester, Kent. Staffing, training & development, and supported living, supporting people with autism, learning disabilities, elderly care, and more.",
   keywords: [
     "care company",
     "domiciliary care",

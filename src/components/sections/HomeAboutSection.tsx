@@ -235,7 +235,7 @@ export default function HomeAboutSection() {
             >
               Founded in Kent, we set out with one conviction: that care is only care
               when it&apos;s genuinely human. Fifteen years, 24 team members, and 10+
-              supported homes later — that conviction hasn&apos;t changed.
+              supported homes later. That conviction hasn&apos;t changed.
             </motion.p>
 
             {/* Magnetic CTA */}
@@ -286,7 +286,7 @@ export default function HomeAboutSection() {
             style={{ aspectRatio: "4 / 5" }}
           >
             <ClipRevealImage
-              src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=900&q=85"
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=85"
               alt="A carer sitting beside an elderly person at home, sharing a warm conversation"
               inView={inView}
               shouldReduce={shouldReduce}

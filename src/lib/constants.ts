@@ -17,29 +17,22 @@ export const SERVICES: ServiceCard[] = [
     id: "staffing",
     title: "Staffing",
     description:
-      "Placing experienced, vetted care professionals with families and facilities — quickly and reliably.",
+      "Placing experienced, DBS-checked care professionals with families and facilities, matched carefully and placed quickly.",
     icon: "👥",
   },
   {
     id: "training",
     title: "Training & Development",
     description:
-      "Equipping carers with the skills, certifications, and confidence to deliver exceptional care.",
+      "Equipping carers with the qualifications, practical skills, and confidence to deliver exceptional, person-centred care.",
     icon: "📋",
   },
   {
     id: "supported-living",
     title: "Supported Living",
     description:
-      "Enabling individuals to live independently in a safe, supportive environment tailored to their needs.",
+      "Enabling individuals with learning disabilities, autism, and complex needs to live independently in a home that truly feels like theirs.",
     icon: "🏡",
-  },
-  {
-    id: "domiciliary",
-    title: "Domiciliary Care",
-    description:
-      "Compassionate in-home care that preserves dignity, independence, and quality of life.",
-    icon: "💚",
   },
 ];
 
@@ -65,7 +58,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "2",
     quote:
-      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Support Ltd. for two years — the standard never drops.",
+      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Support Ltd. for two years. The standard never drops.",
     name: "James R.",
     role: "Care Facility Manager, Rochester",
   },
@@ -83,6 +76,6 @@ export const CONTACT_INFO = {
     label: "Address",
     lines: ["19 Leybourne Road", "Rochester", "United Kingdom", "ME2 3QF"],
   },
-  email: "hello@tacs.health",
+  email: "team@tacs.health",
   phone: "+44 (0)1322 643289",
 };

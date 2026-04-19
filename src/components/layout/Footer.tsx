@@ -189,7 +189,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-3">
             {/* Join Our Team — public, gold accent */}
             <a
-              href="/downloads/application-form.pdf"
+              href="/downloads/application_form.pdf"
               download="TACS-Application-Form.pdf"
               className="group inline-flex items-center gap-2.5 rounded-full border border-gold-700/60 bg-gold-900/30 px-4 py-2.5 font-body text-sm font-medium text-gold-300 transition-all duration-250 hover:border-gold-400 hover:bg-gold-900/50 hover:text-gold-200"
             >

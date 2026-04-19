@@ -17,7 +17,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Support Ltd. for two years — the standard never drops.",
+      "Professional, warm, and incredibly thorough. Our facility has worked with The Affectionate Care Support Ltd. for two years. The standard never drops.",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     name: "James R.",
     role: "Care facility manager, Rochester",
@@ -38,7 +38,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The training programmes were exactly what our team needed — practical, relevant, and delivered with real care for the profession.",
+      "The training programmes were exactly what our team needed: practical, relevant, and delivered with real care for the profession.",
     avatar: "https://randomuser.me/api/portraits/women/17.jpg",
     name: "Fiona L.",
     role: "Care home manager, Medway",
@@ -59,7 +59,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "The domiciliary care has allowed my grandmother to stay in her own home safely — which is all she ever wanted. The difference is remarkable.",
+      "The care has allowed my grandmother to stay in her own home safely, which is all she ever wanted. The difference is remarkable.",
     avatar: "https://randomuser.me/api/portraits/men/14.jpg",
     name: "Connor B.",
     role: "Grandson of client, Dartford",

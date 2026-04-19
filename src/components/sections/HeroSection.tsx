@@ -164,8 +164,8 @@ export default function HeroSection() {
                 className="font-body text-ink-500 leading-relaxed"
                 style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", maxWidth: "38ch" }}
               >
-                Staffing, training &amp; development, supported living, and domiciliary
-                care — delivered with compassion, consistency, and genuine human warmth.
+                Staffing, supported living, and training &amp; development, delivered
+                across Kent with compassion, consistency, and genuine human warmth.
               </p>
             </motion.div>
 
@@ -220,7 +220,7 @@ export default function HeroSection() {
             aria-hidden="true"
           >
             <ParallaxImage
-              src="https://images.unsplash.com/photo-1493815793585-d94ccbc86df8"
+              src="https://images.unsplash.com/photo-1758691463354-055e4d72e5fc?w=900&q=85"
               alt="A grandmother and grandchild sitting closely together in warm natural light"
             />
 
@@ -244,14 +244,14 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <div>
+              {/* <div>
                 <p className="font-body text-xs font-semibold text-ink-900 leading-tight">
                   CQC Registered
                 </p>
                 <p className="font-body text-2xs text-ink-400 leading-tight mt-0.5">
                   Quality Care Commission
                 </p>
-              </div>
+              </div> */}
             </motion.div>
 
             {/* Floating gold accent — top-right of image */}

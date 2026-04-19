@@ -108,7 +108,7 @@ export default function HomeCtaSection() {
               transition={{ duration: 0.6, delay: 0.24, ease: EASE }}
             >
               Whether you need care for a loved one, staffing for your facility,
-              or want to join our team — fill in the form or reach us directly.
+              or want to join our team, fill in the form or reach us directly.
             </motion.p>
 
             {/* Direct contact — two items, quiet */}

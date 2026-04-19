@@ -123,7 +123,7 @@ function DownloadsSection() {
                 </p>
               </div>
               <a
-                href="/downloads/application-form.pdf"
+                href="/downloads/application_form.pdf"
                 download="TACS-Application-Form.pdf"
                 className="btn-primary text-sm shrink-0"
                 aria-label="Download Join Our Team application pack"
@@ -201,7 +201,7 @@ export default function ContactContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.18, ease: EASE }}
           >
-            Reach out and we&apos;ll get back to you shortly. No pressure, no jargon —
+            Reach out and we&apos;ll get back to you shortly. No pressure, no jargon,
             just a helpful conversation.
           </motion.p>
         </div>

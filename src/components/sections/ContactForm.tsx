@@ -65,9 +65,7 @@ export default function ContactForm({
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [touched, setTouched] = useState<
-    Partial<Record<keyof FormValues, boolean>>
-  >({});
+  const [attempted, setAttempted] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>("idle");
 
   function handleChange(
@@ -76,26 +74,16 @@ export default function ContactForm({
     >
   ) {
     const { name, value } = e.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
-    if (touched[name as keyof FormValues]) {
-      setErrors((prev) => ({
-        ...prev,
-        ...validate({ ...values, [name]: value }),
-      }));
+    const next = { ...values, [name]: value };
+    setValues(next);
+    if (attempted) {
+      setErrors(validate(next));
     }
-  }
-
-  function handleBlur(
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-    setErrors((prev) => ({ ...prev, ...validate(values) }));
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setTouched({ name: true, email: true, subject: true, message: true });
+    setAttempted(true);
     const errs = validate(values);
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
@@ -139,7 +127,7 @@ export default function ContactForm({
             setStatus("idle");
             setValues({ name: "", email: "", subject: "", message: "" });
             setErrors({});
-            setTouched({});
+            setAttempted(false);
           }}
         >
           Send another message
@@ -181,23 +169,22 @@ export default function ContactForm({
             type="text"
             required
             aria-required="true"
-            aria-invalid={touched.name && !!errors.name ? "true" : undefined}
+            aria-invalid={attempted && !!errors.name ? "true" : undefined}
             aria-describedby={
-              touched.name && errors.name ? `${p}name-error` : undefined
+              attempted && errors.name ? `${p}name-error` : undefined
             }
             autoComplete="name"
             value={values.name}
             onChange={handleChange}
-            onBlur={handleBlur}
             className={[
               INPUT_BASE,
-              touched.name && errors.name
+              attempted && errors.name
                 ? "border-red-300 focus:ring-red-300"
                 : "border-sand-200",
             ].join(" ")}
             placeholder="Jane Smith"
           />
-          {touched.name && errors.name && (
+          {attempted && errors.name && (
             <p
               id={`${p}name-error`}
               role="alert"
@@ -226,23 +213,22 @@ export default function ContactForm({
             type="email"
             required
             aria-required="true"
-            aria-invalid={touched.email && !!errors.email ? "true" : undefined}
+            aria-invalid={attempted && !!errors.email ? "true" : undefined}
             aria-describedby={
-              touched.email && errors.email ? `${p}email-error` : undefined
+              attempted && errors.email ? `${p}email-error` : undefined
             }
             autoComplete="email"
             value={values.email}
             onChange={handleChange}
-            onBlur={handleBlur}
             className={[
               INPUT_BASE,
-              touched.email && errors.email
+              attempted && errors.email
                 ? "border-red-300 focus:ring-red-300"
                 : "border-sand-200",
             ].join(" ")}
             placeholder="jane@example.com"
           />
-          {touched.email && errors.email && (
+          {attempted && errors.email && (
             <p
               id={`${p}email-error`}
               role="alert"
@@ -295,27 +281,26 @@ export default function ContactForm({
           required
           aria-required="true"
           aria-invalid={
-            touched.message && !!errors.message ? "true" : undefined
+            attempted && !!errors.message ? "true" : undefined
           }
           aria-describedby={
-            touched.message && errors.message
+            attempted && errors.message
               ? `${p}message-error`
               : undefined
           }
           rows={messageRows}
           value={values.message}
           onChange={handleChange}
-          onBlur={handleBlur}
           className={[
             INPUT_BASE,
             "resize-none",
-            touched.message && errors.message
+            attempted && errors.message
               ? "border-red-300 focus:ring-red-300"
               : "border-sand-200",
           ].join(" ")}
           placeholder="Tell us how we can help…"
         />
-        {touched.message && errors.message && (
+        {attempted && errors.message && (
           <p
             id={`${p}message-error`}
             role="alert"

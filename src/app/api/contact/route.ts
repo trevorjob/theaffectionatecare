@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from:     `"The Affectionate Care Support Ltd." <${SMTP_USER}>`,
       to:       'team@tacs.health',
-      bcc:      'yinodors@yahoo.com',
+      bcc:      'yinodors@gmail.com',
       replyTo:  email,
       subject:  `New enquiry: ${subjectLabel} from ${name}`,
       html: `

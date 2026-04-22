@@ -107,7 +107,7 @@ export default function HomeCtaSection() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: 0.24, ease: EASE }}
             >
-              Whether you need care for a loved one, staffing for your facility,
+              Whether you need care for a loved one, support for your facility,
               or want to join our team, fill in the form or reach us directly.
             </motion.p>
 

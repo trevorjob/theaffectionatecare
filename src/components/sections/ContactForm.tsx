@@ -258,7 +258,7 @@ export default function ContactForm({
         >
           <option value="">Select a subject…</option>
           <option value="general">General Enquiry</option>
-          <option value="staffing">Staffing</option>
+          <option value="staffing">Support</option>
           <option value="join">Join the Team</option>
           <option value="other">Other</option>
         </select>

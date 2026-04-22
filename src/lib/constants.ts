@@ -14,10 +14,10 @@ export const STATS: StatItem[] = [
 
 export const SERVICES: ServiceCard[] = [
   {
-    id: "staffing",
-    title: "Staffing",
+    id: "support",
+    title: "Support",
     description:
-      "Placing experienced, DBS-checked care professionals with families and facilities, matched carefully and placed quickly.",
+      "Providing experienced, DBS-checked care professionals to families and facilities, matched carefully to the people and needs that matter most.",
     icon: "👥",
   },
   {
@@ -45,6 +45,8 @@ export const WHO_WE_HELP = [
   "Physical Disabilities",
   "Respite Care",
   "Palliative Care",
+  "Young Adults (16 - 19)",
+  "Children (13 - 15)",
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

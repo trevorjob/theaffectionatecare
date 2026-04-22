@@ -20,8 +20,9 @@ const EASE_OUT  = [0.25, 1, 0.5, 1] as const;
 // The heading split into individually-revealable words.
 // Each word stores whether it should render in sage italic.
 const WORDS: { text: string; accent?: boolean }[] = [
-  { text: "Fifteen" },
-  { text: "years" },
+  { text: "Over" },
+  { text: "a" },
+  { text: "decade" },
   { text: "of" },
   { text: "care" },
   { text: "that" },
@@ -234,7 +235,7 @@ export default function HomeAboutSection() {
               transition={{ duration: 0.65, delay: 0.52, ease: EASE_OUT }}
             >
               Founded in Kent, we set out with one conviction: that care is only care
-              when it&apos;s genuinely human. Fifteen years, 24 team members, and 10+
+              when it&apos;s genuinely human. Over a decade, 24 team members, and 10+
               supported homes later. That conviction hasn&apos;t changed.
             </motion.p>
 
@@ -263,7 +264,7 @@ export default function HomeAboutSection() {
               transition={{ duration: 0.5, delay: 0.82, ease: EASE_OUT }}
             >
               {[
-                { value: "15+", label: "years" },
+                { value: "10+", label: "years" },
                 { value: "24+", label: "team members" },
                 { value: "10+", label: "homes" },
               ].map((stat, i) => (
@@ -286,7 +287,7 @@ export default function HomeAboutSection() {
             style={{ aspectRatio: "4 / 5" }}
           >
             <ClipRevealImage
-              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=85"
+              src="https://images.unsplash.com/photo-1666886573553-6548db92db79?w=900&q=85"
               alt="A carer sitting beside an elderly person at home, sharing a warm conversation"
               inView={inView}
               shouldReduce={shouldReduce}

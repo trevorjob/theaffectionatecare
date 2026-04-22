@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 const SUBJECT_LABELS: Record<string, string> = {
   general:  'General Enquiry',
-  staffing: 'Staffing',
+  staffing: 'Support Enquiry',
   join:     'Join the Team',
   other:    'Other',
 }
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
   try {
     await transporter.sendMail({
       from:     `"The Affectionate Care Support Ltd." <${SMTP_USER}>`,
-      to:       'team@tacs.health',
+      to:       SMTP_USER,
       bcc:      'yinodors@gmail.com',
       replyTo:  email,
       subject:  `New enquiry: ${subjectLabel} from ${name}`,

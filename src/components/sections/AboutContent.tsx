@@ -101,7 +101,7 @@ function AboutIntro() {
             transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
           >
             {[
-              { value: "15+", label: "years serving Kent families" },
+              { value: "10+", label: "years serving Kent families" },
               { value: "24+", label: "dedicated team members" },
               { value: "10+", label: "supported homes" },
             ].map((s) => (
@@ -197,19 +197,19 @@ function StorySection() {
               style={{ aspectRatio: "4 / 5" }}
             >
               <img
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=85"
+                src="https://images.unsplash.com/photo-1666886573553-6548db92db79?w=900&q=85"
                 alt="A carer sitting with an elderly person, sharing a warm moment at home"
                 className="w-full h-full object-cover"
               />
               {/* Gold accent chip — bottom-right */}
-              <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-card border border-sand-100">
+              {/* <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-card border border-sand-100">
                 <p className="font-body text-xs font-semibold text-ink-900 leading-tight">
                   Dartford &amp; Rochester
                 </p>
                 <p className="font-body text-2xs text-ink-400 mt-0.5">
                   Serving Kent since 2009
                 </p>
-              </div>
+              </div> */}
             </div>
           </Reveal>
 
@@ -462,7 +462,7 @@ function CredentialsSection() {
           <Reveal delay={0.12}>
             <div className="flex flex-wrap gap-4">
               {[
-                { label: "CQC Registered", sub: "Care Quality Commission" },
+                { label: "CQC & Ofsted Registered", sub: "Care Quality Commission" },
                 { label: "DBS Checked", sub: "All staff vetted" },
                 { label: "Fully Insured", sub: "Public liability covered" },
               ].map((badge) => (

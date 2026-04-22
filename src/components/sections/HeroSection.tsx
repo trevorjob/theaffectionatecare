@@ -125,15 +125,15 @@ export default function HeroSection() {
           {/* ── Left: text ───────────────────────────────────────────── */}
           <div className="space-y-8 lg:space-y-10">
 
-            {/* Eyebrow */}
+            {/*
             <motion.p
               className="eyebrow"
               initial={shouldReduce ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE_OUT_QUART }}
             >
-              Dartford &amp; Rochester, Kent
-            </motion.p>
+              Care services across the United Kingdom
+            </motion.p> */}
 
             {/* Headline — word-by-word reveal */}
             <h1
@@ -164,8 +164,8 @@ export default function HeroSection() {
                 className="font-body text-ink-500 leading-relaxed"
                 style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)", maxWidth: "38ch" }}
               >
-                Staffing, supported living, and training &amp; development, delivered
-                across Kent with compassion, consistency, and genuine human warmth.
+                Support, training &amp; development, and supported living, delivered
+                with compassion, consistency, and genuine human warmth.
               </p>
             </motion.div>
 
@@ -197,7 +197,7 @@ export default function HeroSection() {
               aria-label="Key statistics"
             >
               {[
-                { value: "15+", label: "years" },
+                { value: "10+", label: "years" },
                 { value: "24+", label: "team members" },
                 { value: "10+", label: "happy homes" },
               ].map((stat, i) => (
@@ -220,7 +220,7 @@ export default function HeroSection() {
             aria-hidden="true"
           >
             <ParallaxImage
-              src="https://images.unsplash.com/photo-1758691463354-055e4d72e5fc?w=900&q=85"
+              src="https://images.unsplash.com/photo-1650841118154-2b222083f3e8?w=900&q=85"
               alt="A grandmother and grandchild sitting closely together in warm natural light"
             />
 
@@ -246,7 +246,7 @@ export default function HeroSection() {
               </div>
               {/* <div>
                 <p className="font-body text-xs font-semibold text-ink-900 leading-tight">
-                  CQC Registered
+                  CQC & Ofsted Registered
                 </p>
                 <p className="font-body text-2xs text-ink-400 leading-tight mt-0.5">
                   Quality Care Commission
@@ -263,7 +263,7 @@ export default function HeroSection() {
               aria-hidden="true"
             >
               <span className="font-display text-gold-500 text-lg font-normal italic leading-none">
-                15+
+                10+
               </span>
             </motion.div>
           </div>

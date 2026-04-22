@@ -9,9 +9,9 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import HomeCtaSection from "@/components/sections/HomeCtaSection";
 
 export const metadata: Metadata = {
-  title: "The Affectionate Care Support Ltd. | Care Services in Kent",
+  title: "The Affectionate Care Support Ltd. | Care Services Across the UK",
   description:
-    "Professional staffing, supported living, domiciliary care, and training across Dartford & Rochester, Kent. Supporting people with autism, learning disabilities, elderly care, and more.",
+    "Professional care support, supported living, and training across the United Kingdom. Supporting people with autism, learning disabilities, elderly care, and more.",
 };
 
 export default function LandingPage() {
@@ -31,7 +31,7 @@ export default function LandingPage() {
             {[
               { value: "10+", label: "Happy Homes" },
               { value: "24+", label: "Inspired Team Members" },
-              { value: "15+", label: "Years Experience" },
+              { value: "10+", label: "Years Experience" },
             ].map((stat) => (
               <div key={stat.label} className="py-4 sm:py-0">
                 <p className="font-display text-5xl font-light text-sage-700">{stat.value}</p>

@@ -220,7 +220,8 @@ export default function HeroSection() {
             aria-hidden="true"
           >
             <ParallaxImage
-              src="https://images.unsplash.com/photo-1650841118154-2b222083f3e8?w=900&q=85"
+              src="https://images.unsplash.com/photo-1772790919850-b2810d14e6f5?w=900&q=85"
+              
               alt="A grandmother and grandchild sitting closely together in warm natural light"
             />
 

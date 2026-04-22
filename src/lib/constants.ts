@@ -53,7 +53,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "1",
     quote:
-      "From the very first call, we felt heard. The team took genuine time to understand my mother's needs and matched us with a carer who felt like family.",
+      "From the very first call, we felt heard. The team took genuine time to understand my mother's needs and matched us with a support staff who felt like family.",
     name: "Sarah T.",
     role: "Family Client, Dartford",
   },

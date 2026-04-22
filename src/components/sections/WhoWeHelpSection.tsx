@@ -16,7 +16,7 @@ export default function WhoWeHelpSection() {
       aria-labelledby="who-heading"
     >
       <div className="container-site">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
 
           {/* Left: heading + description */}
           <motion.div
@@ -35,8 +35,8 @@ export default function WhoWeHelpSection() {
               Supporting people<br />who matter.
             </h2>
             <span className="gold-rule block" aria-hidden="true" />
-            <p className="font-body text-sm text-ink-500 leading-relaxed max-w-[34ch]">
-              Our care spans a wide range of needs and conditions. Whatever the
+            <p className="max-w-[34ch] font-body text-sm leading-relaxed text-ink-500">
+              Our care and support spans a wide range of needs and conditions. Whatever the
               situation, our approach is always the same: patient, skilled, and
               genuinely human.
             </p>

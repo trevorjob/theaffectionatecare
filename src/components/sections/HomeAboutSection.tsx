@@ -287,8 +287,8 @@ export default function HomeAboutSection() {
             style={{ aspectRatio: "4 / 5" }}
           >
             <ClipRevealImage
-              src="https://images.unsplash.com/photo-1666886573553-6548db92db79?w=900&q=85"
-              alt="A carer sitting beside an elderly person at home, sharing a warm conversation"
+              src="/images/person_b.jpeg"
+              alt="A nurse sitting beside an elderly person at home, sharing a warm conversation"
               inView={inView}
               shouldReduce={shouldReduce}
             />

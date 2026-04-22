@@ -70,7 +70,7 @@ function AboutIntro() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
             >
-              Fifteen years of care{" "}
+              Over a Decade of Care{" "}
               <em className="text-sage-600 not-italic">that&nbsp;means&nbsp;it.</em>
             </motion.h1>
 
@@ -85,10 +85,8 @@ function AboutIntro() {
                 className="font-body text-ink-500 leading-relaxed"
                 style={{ fontSize: "clamp(1rem, 1.4vw, 1.1rem)", maxWidth: "44ch" }}
               >
-                Founded in Kent, we set out with one conviction: that care is only care
-                when it&apos;s genuinely human. That conviction hasn&apos;t changed. Everything
-                we do: staffing, training, supported living. Built
-                around people first, paperwork second.
+                We offer support, companionship, palliative care, respite, staff training,
+                and supported living. We put the person first in everything we do.
               </p>
             </motion.div>
           </div>
@@ -148,21 +146,22 @@ function StorySection() {
                 className="font-display leading-tight"
                 style={{ fontSize: "clamp(1.8rem, 3.2vw, 2.8rem)" }}
               >
-                Born in Dartford,<br />rooted in community.
+                Born in Kent,<br />rooted in every community around the uk.
               </h2>
             </Reveal>
 
             <Reveal delay={0.16} className="space-y-4">
               <p className="font-body text-sm text-ink-500 leading-relaxed">
-                The Affectionate Care Support Ltd. grew from a simple frustration: too many
-                care services were clinical in the cold sense: efficient but impersonal.
-                We wanted to prove that high standards and genuine warmth aren&apos;t in
-                conflict. They reinforce each other.
+                We started because we kept hearing the same thing: people weren&apos;t
+                being looked after properly. That wasn&apos;t good enough for us. We knew
+                care could be better, warmer, and more personal. So we built something
+                we could be proud of.
               </p>
               <p className="font-body text-sm text-ink-500 leading-relaxed">
-                Today we operate from offices in Dartford and Rochester, serving families
-                and facilities across Kent. Our team is small by design: every member is
-                personally selected, trained to our standard, and aligned with our values.
+                Our main office is in Rochester, with a branch in Dartford. We&apos;re also
+                expanding into Scotland later this year. Our team includes support
+                workers, nurses, and in-house trainers who keep our standards high.
+                Everything we do comes back to one thing: caring for people the right way.
               </p>
             </Reveal>
 
@@ -170,8 +169,7 @@ function StorySection() {
             <Reveal delay={0.22}>
               <blockquote className="border-l-2 border-gold-400 pl-5 my-6">
                 <p className="font-display text-lg italic text-ink-700 leading-snug">
-                  &ldquo;High standards and genuine warmth aren&apos;t in conflict.
-                  They reinforce each other.&rdquo;
+                  &ldquo;Supporting lives with affectionate care and respect.&rdquo;
                 </p>
               </blockquote>
             </Reveal>
@@ -197,7 +195,7 @@ function StorySection() {
               style={{ aspectRatio: "4 / 5" }}
             >
               <img
-                src="https://images.unsplash.com/photo-1666886573553-6548db92db79?w=900&q=85"
+                src="/images/person_b.jpeg"
                 alt="A carer sitting with an elderly person, sharing a warm moment at home"
                 className="w-full h-full object-cover"
               />
@@ -225,7 +223,7 @@ const PILLARS = [
   {
     number: "01",
     title: "Compassion without compromise",
-    body: "Warmth is not a trade-off for professionalism. It is our definition of it. Every carer we place is chosen as much for their character as their qualifications.",
+    body: "Warmth is not a trade-off for professionalism. It is our definition of it. Every support we place is chosen as much for their character as their qualifications.",
   },
   {
     number: "02",
@@ -351,7 +349,7 @@ function WhoWeHelpSection() {
 
 const TEAM = [
   { initials: "TC", name: "Theresa Clarke", role: "Founder & Director", bg: "bg-sage-100", text: "text-sage-700" },
-  { initials: "MO", name: "Marcus Osei", role: "Head of Staffing", bg: "bg-gold-100", text: "text-gold-700" },
+  { initials: "MO", name: "Marcus Osei", role: "Head of Support", bg: "bg-gold-100", text: "text-gold-700" },
   { initials: "PA", name: "Priya Anand", role: "Training Lead", bg: "bg-sage-50", text: "text-sage-600" },
   { initials: "JB", name: "James Barnett", role: "Supported Living Manager", bg: "bg-sand-100", text: "text-ink-600" },
 ];
@@ -448,13 +446,12 @@ function CredentialsSection() {
                 className="font-display leading-tight"
                 style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)" }}
               >
-                CQC Registered. Fully compliant.
+                CQC & Ofsted Registered. Fully compliant.
               </h2>
               <p className="font-body text-sm text-ink-500 leading-relaxed max-w-prose">
                 The Affectionate Care Support Ltd. is registered with the Care Quality Commission.
                 Our practices are regularly inspected and held to the highest national standards.
-                You can trust that the care you receive meets every regulatory requirement,
-                and then some.
+                You can trust that the care you receive meets every regulatory requirement.
               </p>
             </div>
           </Reveal>
@@ -518,7 +515,7 @@ export default function AboutContent() {
       <CtaBanner
         headingLine="Ready to talk"
         headingAccent="about care?"
-        body="Whether you need care for a loved one, staffing for your facility, or want to join our team, we'd love to hear from you."
+        body="Whether you need care for a loved one, support for your facility, or want to join our team, we'd love to hear from you."
         secondaryLabel="Our Services"
         secondaryHref="/#services"
         watermark="Talk."

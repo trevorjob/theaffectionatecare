@@ -10,7 +10,7 @@ import { motion, useReducedMotion } from "motion/react";
 const TESTIMONIALS = [
   {
     quote:
-      "From the very first call, we felt heard. The team took time to understand my mother's needs and matched us with a carer who felt like family.",
+      "From the very first call, we felt heard. The team took time to understand my mother's needs and matched us with a support that felt like family.",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     name: "Sarah T.",
     role: "Family client, Dartford",
@@ -31,7 +31,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Every carer placed was qualified, compassionate, and genuinely invested in my father's wellbeing. I can sleep easy knowing he's cared for.",
+      "Every Support Staff placed was qualified, compassionate, and genuinely invested in my father's wellbeing. I can sleep easy knowing he's cared for.",
     avatar: "https://randomuser.me/api/portraits/men/52.jpg",
     name: "David K.",
     role: "Son of client, Gravesend",

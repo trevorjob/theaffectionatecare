@@ -7,7 +7,7 @@ import { SERVICES } from "@/lib/constants";
 
 // Unsplash images for each service — care/human/warmth themes
 const SERVICE_IMAGES = [
-  "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=900&q=80", // Staffing — caring hands
+  "/images/smiling-nurse-hospital-hallway.jpg", // Staffing — caring hands
   "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&q=80", // Training — learning environment
   "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80", // Supported Living — warm home
 ];

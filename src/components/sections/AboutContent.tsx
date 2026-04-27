@@ -152,16 +152,37 @@ function StorySection() {
 
             <Reveal delay={0.16} className="space-y-4">
               <p className="font-body text-sm text-ink-500 leading-relaxed">
-                We started because we kept hearing the same thing: people weren&apos;t
-                being looked after properly. That wasn&apos;t good enough for us. We knew
-                care could be better, warmer, and more personal. So we built something
-                we could be proud of.
+                At The Affectionate Care Support Ltd, care is more than a service. It is
+                a commitment to dignity, compassion, and human connection. We believe
+                that every individual deserves to feel valued, respected, and truly seen,
+                regardless of their circumstances. Our approach is rooted in empathy,
+                guided by professionalism, and delivered with genuine warmth.
               </p>
               <p className="font-body text-sm text-ink-500 leading-relaxed">
-                Our main office is in Rochester, with a branch in Dartford. We&apos;re also
-                expanding into Scotland later this year. Our team includes support
-                workers, nurses, and in-house trainers who keep our standards high.
-                Everything we do comes back to one thing: caring for people the right way.
+                We understand that inviting care into your life or the life of a loved one
+                is a deeply personal decision. That is why we take the time to listen, to
+                understand unique needs, and to tailor our support in a way that honours
+                independence while providing reassurance. Whether offering companionship,
+                practical assistance, or specialist care, our goal is always the same:
+                to enhance quality of life and promote a sense of comfort, security,
+                and belonging.
+              </p>
+              <p className="font-body text-sm text-ink-500 leading-relaxed">
+                Our team is made up of dedicated professionals who are not only highly
+                trained but also deeply passionate about making a difference. We carefully
+                select individuals who share our values of kindness, integrity, and
+                respect, ensuring that every interaction reflects the heart of who we are.
+              </p>
+              <p className="font-body text-sm text-ink-500 leading-relaxed">
+                At the core of The Affectionate Care Support Ltd is a simple yet powerful
+                belief: care should feel personal. It should feel attentive. And above
+                all, it should feel affectionate. Every smile we bring, every moment of
+                reassurance we provide, and every life we touch is a reflection of our
+                unwavering commitment to those we serve.
+              </p>
+              <p className="font-body text-sm text-ink-500 leading-relaxed">
+                We are here not just to support, but to uplift, because everyone deserves
+                care and support that comes from the heart.
               </p>
             </Reveal>
 

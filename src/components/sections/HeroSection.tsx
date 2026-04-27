@@ -45,13 +45,6 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
         animate={{ opacity: 1, scale: 1.12 }}
         transition={{ duration: 1.1, ease: EASE_OUT_QUART, delay: 0.15 }}
       />
-      {/* Subtle sage vignette on left edge — blends image into text side */}
-      <div
-        className="absolute inset-y-0 left-0 w-24 pointer-events-none"
-        style={{
-          background: "linear-gradient(to right, #FAFAF8, transparent)",
-        }}
-      />
     </div>
   );
 }
@@ -115,7 +108,7 @@ export default function HeroSection() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at -10% 20%, rgba(240,250,245,0.9) 0%, transparent 65%)",
+            "radial-gradient(ellipse 80% 60% at -10% 20%, rgba(107,191,158,0.10) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 90% 80%, rgba(212,169,106,0.06) 0%, transparent 60%)",
         }}
       />
 

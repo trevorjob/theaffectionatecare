@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactContent from "@/components/sections/ContactContent";
+import PageAura from "@/components/effects/PageAura";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <PageAura variant="contact" />
       <Navbar />
       <ContactContent />
       <Footer />

@@ -173,7 +173,7 @@ export default function ContactContent() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 70% 55% at 5% 10%, rgba(240,250,245,0.85) 0%, transparent 65%)",
+              "radial-gradient(ellipse 70% 55% at 5% 10%, rgba(107,191,158,0.08) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 95% 90%, rgba(212,169,106,0.05) 0%, transparent 60%)",
           }}
         />
         <div className="container-site max-w-text space-y-4">

@@ -7,6 +7,7 @@ import HomeAboutSection from "@/components/sections/HomeAboutSection";
 import WhoWeHelpSection from "@/components/sections/WhoWeHelpSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import HomeCtaSection from "@/components/sections/HomeCtaSection";
+import PageAura from "@/components/effects/PageAura";
 
 export const metadata: Metadata = {
   title: "The Affectionate Care Support Ltd. | Care Services Across the UK",
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function LandingPage() {
   return (
     <>
+      <PageAura variant="home" />
       <Navbar />
       <main>
         <HeroSection />

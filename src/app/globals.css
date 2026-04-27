@@ -3,36 +3,56 @@
 @tailwind utilities;
 
 /* ─── CSS Custom Properties ─────────────────────────────────────────────── */
+/* Dark theme — flipped from the original light palette.                    */
+/* Names kept identical so existing utility classes still resolve;          */
+/* values are remapped to a deep, sage-tinted dark surface system.          */
 :root {
-  /* Page */
-  --page-bg:   #FAFAF8;
-  --surface:   #FFFFFF;
+  /* Page surfaces — deep, slightly sage-tinted near-black */
+  --page-bg:   #0B100E;
+  --surface:   #131A17;   /* elevated card surface */
+  --surface-2: #1A221F;   /* deeper card / input bg */
+  --surface-3: #232B28;   /* hover / pressed */
 
-  /* Sage green scale */
-  --sage-50:   #F0FAF5;
-  --sage-100:  #E1F5EE;
-  --sage-200:  #B8E9D8;
+  /* Sage green scale — bumped luminance for legibility on dark */
+  --sage-50:   #1B2622;   /* was light cream sage; now dark sage surface */
+  --sage-100:  #223029;
+  --sage-200:  #2D4338;
+  --sage-300:  #3F8770;
   --sage-400:  #6BBF9E;
-  --sage-500:  #4A9B7F;
-  --sage-600:  #3A8068;
-  --sage-700:  #2D6E56;
-  --sage-900:  #085041;
+  --sage-500:  #7BD0AE;
+  --sage-600:  #92DCBC;
+  --sage-700:  #ACE6CC;
+  --sage-800:  #1F5040;
+  --sage-900:  #0E1F1A;
 
-  /* Gold scale */
-  --gold-50:   #FDF7EE;
-  --gold-100:  #FAEEDA;
-  --gold-200:  #F5D9B0;
+  /* Gold scale — slightly warmer/brighter for dark legibility */
+  --gold-50:   #2A2218;
+  --gold-100:  #3A2E1F;
+  --gold-200:  #5A4828;
+  --gold-300:  #B58A4F;
   --gold-400:  #DFB87A;
-  --gold-500:  #D4A96A;
-  --gold-600:  #B88A42;
-  --gold-900:  #633806;
+  --gold-500:  #E8C58A;
+  --gold-600:  #F0D5A4;
+  --gold-700:  #F5DFB6;
+  --gold-900:  #FBEED5;
 
-  /* Neutral / ink */
-  --ink-400:   #6B6762;
-  --ink-600:   #3D3B38;
-  --ink-900:   #1A1916;
-  --sand-100:  #F5F3EF;
-  --sand-200:  #EAE7E1;
+  /* Neutral / ink — INVERTED. Now light tones for text on dark bg. */
+  --ink-400:   #8A867E;
+  --ink-500:   #A8A39A;
+  --ink-600:   #C9C5BE;
+  --ink-700:   #DEDBD4;
+  --ink-900:   #F5F4F1;
+
+  /* Sand — was cream surfaces; now slightly elevated dark surfaces */
+  --sand-50:   #131A17;
+  --sand-100:  #1A221F;
+  --sand-200:  #232B28;
+  --sand-300:  #2E3733;
+
+  /* Borders / dividers — soft luminous edges */
+  --border-soft:  rgba(255, 255, 255, 0.06);
+  --border-base:  rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.16);
 
   /* Typography */
   --font-display: var(--font-playfair), Georgia, serif;
@@ -46,8 +66,10 @@
   --duration-slow:   600ms;
 
   /* Spacing landmarks */
-  --section-py:  6rem;   /* 96px desktop */
-  --container-x: 2rem;   /* 32px desktop gutter */
+  --section-py:  6rem;
+  --container-x: 2rem;
+
+  color-scheme: dark;
 }
 
 /* ─── Base Reset & Defaults ──────────────────────────────────────────────── */
@@ -63,21 +85,58 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    background-color: var(--page-bg);
   }
 
   body {
-    background-color: #FAFAF8;
-    color: #3D3B38;
+    background-color: var(--page-bg);
+    color: var(--ink-600);
     font-family: var(--font-body);
     font-size: 1rem;
     line-height: 1.625;
     min-height: 100dvh;
   }
 
-  /* Headings use display font */
+  /* Subtle film-grain overlay — high-end editorial dark-mode signature */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  /* Don't overlay form interactions */
+  @media (prefers-reduced-motion: reduce) {
+    body::before { opacity: 0.025; }
+  }
+
+  /* Premium ::selection — sage tinted */
+  ::selection {
+    background-color: rgba(107, 191, 158, 0.32);
+    color: #FFFFFF;
+  }
+
+  /* Branded thin scrollbar — quiet but on-brand */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(107, 191, 158, 0.25) transparent;
+  }
+  *::-webkit-scrollbar { width: 8px; height: 8px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(107, 191, 158, 0.20);
+    border-radius: 999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(107, 191, 158, 0.35);
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    color: #1A1916;
+    color: var(--ink-900);
     text-wrap: balance;
     line-height: 1.2;
   }
@@ -90,7 +149,7 @@
   h6 { font-size: 1rem;     font-weight: 600; font-family: var(--font-body); }
 
   p {
-    color: #504D49;
+    color: var(--ink-600);
     max-width: 68ch;
     text-wrap: pretty;
   }
@@ -105,19 +164,16 @@
     display: block;
   }
 
-  /* Visible focus rings — WCAG 2.1 AA */
   :focus-visible {
-    outline: 2px solid #6BBF9E;
+    outline: 2px solid var(--sage-400);
     outline-offset: 3px;
     border-radius: 3px;
   }
 
-  /* Remove focus ring for mouse users */
   :focus:not(:focus-visible) {
     outline: none;
   }
 
-  /* Reduced motion — all animations off */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -128,11 +184,119 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Form controls — dark surface defaults */
+  input, textarea, select {
+    background-color: var(--surface-2);
+    color: var(--ink-900);
+  }
+  input::placeholder, textarea::placeholder {
+    color: var(--ink-400);
+  }
+}
+
+/* ─── Tailwind utility overrides — light-class names, dark values ────────── */
+/* These map the existing palette tokens used throughout the codebase to    */
+/* their dark-mode equivalents without requiring file-by-file rewrites.     */
+@layer utilities {
+  /* Page / surface backgrounds — subtle gradient on cards (premium) */
+  .bg-white {
+    background-color: var(--surface) !important;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(0,0,0,0.04) 100%) !important;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+  .bg-background  { background-color: var(--page-bg) !important; }
+
+  /* Sand cream surfaces → elevated dark with subtle gradient */
+  .bg-sand-50 {
+    background-color: var(--sand-50) !important;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.03) 100%) !important;
+  }
+  .bg-sand-100 {
+    background-color: var(--sand-100) !important;
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(0,0,0,0.035) 100%) !important;
+  }
+  .bg-sand-200    { background-color: var(--sand-200) !important; }
+
+  /* Sage washes — dark sage-tinted with luminous gradient */
+  .bg-sage-50 {
+    background-color: var(--sage-50) !important;
+    background-image: linear-gradient(180deg, rgba(107,191,158,0.04) 0%, rgba(0,0,0,0.04) 100%) !important;
+  }
+  .bg-sage-100    { background-color: var(--sage-100) !important; }
+
+  /* Gold tints */
+  .bg-gold-50     { background-color: var(--gold-50) !important; }
+  .bg-gold-100    { background-color: var(--gold-100) !important; }
+
+  /* Ink text → light tones */
+  .text-ink-400   { color: var(--ink-400) !important; }
+  .text-ink-500   { color: var(--ink-500) !important; }
+  .text-ink-600   { color: var(--ink-600) !important; }
+  .text-ink-700   { color: var(--ink-700) !important; }
+  .text-ink-900   { color: var(--ink-900) !important; }
+
+  /* Sage / gold text — bumped variants */
+  .text-sage-600  { color: var(--sage-500) !important; }
+  .text-sage-700  { color: var(--sage-600) !important; }
+  .text-gold-600  { color: var(--gold-500) !important; }
+  .text-gold-700  { color: var(--gold-600) !important; }
+  .text-gold-300  { color: var(--gold-300) !important; }
+  .text-gold-200  { color: var(--gold-200) !important; }
+
+  /* Borders & dividers — soft luminous edges */
+  .border-sand-100,
+  .border-sand-200,
+  .border-sand-300   { border-color: var(--border-soft) !important; }
+  .divide-sand-100 > :not([hidden]) ~ :not([hidden]),
+  .divide-sand-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: var(--border-soft) !important;
+  }
+  .divide-sage-100 > :not([hidden]) ~ :not([hidden]),
+  .divide-sage-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: var(--border-soft) !important;
+  }
+  .divide-sage-200,
+  .border-sage-100,
+  .border-sage-200 { border-color: var(--border-base) !important; }
+  .border-gold-200,
+  .border-gold-300,
+  .border-gold-400 { border-color: var(--gold-300) !important; }
+
+  /* Card shadows on dark bg — replace warm-ink shadows with soft glows */
+  .shadow-card    { box-shadow: 0 1px 0 0 rgba(255,255,255,0.04), 0 1px 3px 0 rgba(0,0,0,0.4) !important; }
+  .shadow-card-md { box-shadow: 0 1px 0 0 rgba(255,255,255,0.05), 0 4px 16px -2px rgba(0,0,0,0.5) !important; }
+  .shadow-card-lg { box-shadow: 0 1px 0 0 rgba(255,255,255,0.06), 0 12px 32px -4px rgba(0,0,0,0.55) !important; }
+  .shadow-card-xl { box-shadow: 0 1px 0 0 rgba(255,255,255,0.07), 0 24px 48px -8px rgba(0,0,0,0.6) !important; }
+
+  /* Sage 900 (already dark) — keep but lift slightly */
+  .bg-sage-900   { background-color: #0E1F1A !important; }
+  .text-sage-200 { color: var(--sage-700) !important; }
+  .text-sage-300 { color: var(--sage-600) !important; }
+  .text-sage-400 { color: var(--sage-500) !important; }
+  .text-sage-500 { color: var(--sage-400) !important; }
+  .text-sage-600 { color: var(--sage-500) !important; }
+
+  /* White text used inside dark sections — keep bright */
+  .text-white { color: #FFFFFF !important; }
+
+  /* bg-white/95 (semi-transparent floating chips) → dark elevated */
+  .bg-white\/95     { background-color: rgba(26, 34, 31, 0.95) !important; }
+  .bg-white\/60     { background-color: rgba(19, 26, 23, 0.60) !important; }
+  .bg-white\/80     { background-color: rgba(19, 26, 23, 0.80) !important; }
+
+  /* Ring / focus accents */
+  .ring-sage-200 { --tw-ring-color: var(--sage-300) !important; }
+
+  /* Red error states — bump for dark legibility */
+  .text-red-600   { color: #FCA5A5 !important; }
+  .bg-red-50      { background-color: rgba(127, 29, 29, 0.25) !important; }
+  .border-red-200 { border-color: rgba(239, 68, 68, 0.35) !important; }
+  .border-red-300 { border-color: rgba(239, 68, 68, 0.55) !important; }
 }
 
 /* ─── Component Utilities ────────────────────────────────────────────────── */
 @layer components {
-  /* Container — max 1200px, centred, consistent gutters */
   .container-site {
     width: 100%;
     max-width: 75rem;
@@ -146,15 +310,12 @@
     .container-site { padding-inline: 2.5rem; }
   }
 
-  /* Section wrapper — standard vertical breathing room */
-  .section {
-    padding-block: 5rem;
-  }
+  .section { padding-block: 5rem; }
   @media (min-width: 768px) {
     .section { padding-block: var(--section-py); }
   }
 
-  /* Eyebrow label — small all-caps category label above headings */
+  /* Eyebrow — sage on dark reads well */
   .eyebrow {
     display: inline-block;
     font-family: var(--font-body);
@@ -162,42 +323,57 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #4A9B7F;
+    color: var(--sage-500);
   }
 
-  /* Gold rule — thin decorative horizontal line */
+  /* Gold rule — refined gradient (premium metallic feel) */
   .gold-rule {
     display: block;
     width: 3rem;
     height: 1px;
-    background-color: #D4A96A;
+    background-image: linear-gradient(90deg,
+      transparent 0%,
+      var(--gold-400) 20%,
+      var(--gold-300) 50%,
+      var(--gold-400) 80%,
+      transparent 100%
+    );
+    box-shadow: 0 0 12px 0 rgba(223, 184, 122, 0.25);
   }
 
-  /* Sage pill — the "Who we help" pill chips */
+  /* Sage pill — luminous edge, gentle glow on hover */
   .pill {
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 1.25rem;
     border-radius: 9999px;
-    border: 1px solid #B8E9D8;
-    background-color: #F0FAF5;
-    color: #2D6E56;
+    border: 1px solid var(--sage-200);
+    background-image: linear-gradient(180deg, rgba(107,191,158,0.06) 0%, rgba(0,0,0,0.05) 100%);
+    background-color: var(--sage-50);
+    color: var(--sage-600);
     font-family: var(--font-body);
     font-size: 0.875rem;
     font-weight: 500;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
     transition: background-color var(--duration-fast) var(--ease-natural),
-                border-color var(--duration-fast) var(--ease-natural);
+                border-color var(--duration-fast) var(--ease-natural),
+                box-shadow var(--duration-fast) var(--ease-natural),
+                transform var(--duration-fast) var(--ease-natural);
   }
   .pill:hover {
-    background-color: #E1F5EE;
-    border-color: #6BBF9E;
+    background-color: var(--sage-100);
+    border-color: var(--sage-300);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+      0 0 24px -4px rgba(107, 191, 158, 0.25);
+    transform: translateY(-1px);
   }
   .pill:focus-visible {
-    outline: 2px solid #6BBF9E;
+    outline: 2px solid var(--sage-400);
     outline-offset: 2px;
   }
 
-  /* Button — primary (sage green) */
+  /* Primary button — sage with subtle gradient + ambient glow at rest */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -205,26 +381,33 @@
     gap: 0.5rem;
     padding: 0.75rem 1.75rem;
     border-radius: 9999px;
-    background-color: #4A9B7F;
-    color: #FFFFFF;
+    background-image: linear-gradient(180deg, var(--sage-500) 0%, var(--sage-400) 100%);
+    color: #07100D;
     font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    transition: background-color var(--duration-fast) var(--ease-natural),
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+      0 1px 0 0 rgba(0, 0, 0, 0.4),
+      0 4px 16px -4px rgba(107, 191, 158, 0.20);
+    transition: background-image var(--duration-fast) var(--ease-natural),
                 box-shadow var(--duration-fast) var(--ease-natural),
                 transform var(--duration-fast) var(--ease-natural);
     cursor: pointer;
     border: none;
   }
   .btn-primary:hover {
-    background-color: #3A8068;
-    box-shadow: 0 4px 16px -2px rgb(74 155 127 / 0.30);
+    background-image: linear-gradient(180deg, var(--sage-600) 0%, var(--sage-500) 100%);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.20),
+      0 1px 0 0 rgba(0, 0, 0, 0.4),
+      0 12px 32px -6px rgba(107, 191, 158, 0.45);
     transform: translateY(-1px);
   }
   .btn-primary:active { transform: translateY(0); }
 
-  /* Button — secondary (outlined gold) */
+  /* Secondary button — gold outline on dark */
   .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -233,25 +416,25 @@
     padding: 0.75rem 1.75rem;
     border-radius: 9999px;
     background-color: transparent;
-    color: #A06C2E;
+    color: var(--gold-400);
     font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    border: 1.5px solid #D4A96A;
+    border: 1.5px solid var(--gold-300);
     transition: background-color var(--duration-fast) var(--ease-natural),
                 border-color var(--duration-fast) var(--ease-natural),
                 transform var(--duration-fast) var(--ease-natural);
     cursor: pointer;
   }
   .btn-secondary:hover {
-    background-color: #FDF7EE;
-    border-color: #B88A42;
+    background-color: rgba(223, 184, 122, 0.08);
+    border-color: var(--gold-400);
     transform: translateY(-1px);
   }
   .btn-secondary:active { transform: translateY(0); }
 
-  /* Button — ghost (sage outlined) */
+  /* Ghost — sage outlined */
   .btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -260,25 +443,25 @@
     padding: 0.75rem 1.75rem;
     border-radius: 9999px;
     background-color: transparent;
-    color: #3A8068;
+    color: var(--sage-500);
     font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    border: 1.5px solid #B8E9D8;
+    border: 1.5px solid var(--sage-200);
     transition: background-color var(--duration-fast) var(--ease-natural),
                 border-color var(--duration-fast) var(--ease-natural),
                 transform var(--duration-fast) var(--ease-natural);
     cursor: pointer;
   }
   .btn-ghost:hover {
-    background-color: #F0FAF5;
-    border-color: #6BBF9E;
+    background-color: var(--sage-50);
+    border-color: var(--sage-300);
     transform: translateY(-1px);
   }
   .btn-ghost:active { transform: translateY(0); }
 
-  /* Button — ghost gold (staff / secondary gold variant) */
+  /* Ghost gold — staff variant */
   .btn-ghost-gold {
     display: inline-flex;
     align-items: center;
@@ -287,32 +470,31 @@
     padding: 0.75rem 1.75rem;
     border-radius: 9999px;
     background-color: transparent;
-    color: #A06C2E;
+    color: var(--gold-400);
     font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    border: 1.5px solid #DFB87A;
+    border: 1.5px solid var(--gold-300);
     transition: background-color var(--duration-fast) var(--ease-natural),
                 border-color var(--duration-fast) var(--ease-natural),
                 transform var(--duration-fast) var(--ease-natural);
     cursor: pointer;
   }
   .btn-ghost-gold:hover {
-    background-color: #FDF7EE;
-    border-color: #B88A42;
+    background-color: rgba(223, 184, 122, 0.08);
+    border-color: var(--gold-400);
     transform: translateY(-1px);
   }
   .btn-ghost-gold:active { transform: translateY(0); }
   .btn-ghost-gold:focus-visible {
-    outline: 2px solid #6BBF9E;
+    outline: 2px solid var(--sage-400);
     outline-offset: 2px;
   }
 }
 
 /* ─── Scroll-reveal Animation Utility ───────────────────────────────────── */
 @layer utilities {
-  /* Applied by the useReveal hook — elements start hidden */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -320,13 +502,11 @@
                 transform var(--duration-slow) var(--ease-out-smooth);
   }
 
-  /* Hook adds this class when element enters viewport */
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Staggered siblings */
   .reveal-stagger > * {
     opacity: 0;
     transform: translateY(24px);
@@ -340,7 +520,6 @@
   .reveal-stagger.is-visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 400ms; }
   .reveal-stagger.is-visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 500ms; }
 
-  /* Text balance helpers */
   .text-balance { text-wrap: balance; }
   .text-pretty  { text-wrap: pretty; }
 }

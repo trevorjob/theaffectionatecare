@@ -216,7 +216,7 @@ function StorySection() {
               style={{ aspectRatio: "4 / 5" }}
             >
               <img
-                src="/images/person_b.jpeg"
+                src="/images/person_b.JPG"
                 alt="A carer sitting with an elderly person, sharing a warm moment at home"
                 className="w-full h-full object-cover"
               />
